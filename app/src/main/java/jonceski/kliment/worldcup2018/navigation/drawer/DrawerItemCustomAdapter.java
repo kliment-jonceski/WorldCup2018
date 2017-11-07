@@ -1,4 +1,4 @@
-package jonceski.kliment.worldcup2018.navigation;
+package jonceski.kliment.worldcup2018.navigation.drawer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import jonceski.kliment.worldcup2018.R;
+import jonceski.kliment.worldcup2018.navigation.drawer.MenuFeatureModel;
 
 /**
  * Created by kliment on 8/8/2017.

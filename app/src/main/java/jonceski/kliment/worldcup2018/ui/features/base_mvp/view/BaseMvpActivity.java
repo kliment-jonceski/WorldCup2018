@@ -1,17 +1,19 @@
-package jonceski.kliment.worldcup2018.ui.features.base_mvp;
+package jonceski.kliment.worldcup2018.ui.features.base_mvp.view;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import jonceski.kliment.worldcup2018.navigation.NavigationDrawerDelegate;
+import butterknife.ButterKnife;
+import jonceski.kliment.worldcup2018.hierarchy.SetCurrentStateActivity;
+import jonceski.kliment.worldcup2018.navigation.drawer.NavigationDrawerDelegate;
 import jonceski.kliment.worldcup2018.ui.features.start_screen_feature.view.StartScreenActivity;
 
 /**
  * Created by kliment on 8/7/2017.
  */
 
-public abstract class BaseMvpActivity extends AppCompatActivity {
+public abstract class BaseMvpActivity extends SetCurrentStateActivity {
     protected abstract int getLayoutId();
     private NavigationDrawerDelegate navigationDrawerDelegate;
 
@@ -20,6 +22,7 @@ public abstract class BaseMvpActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        ButterKnife.bind(this);
         navigationDrawerDelegate = new NavigationDrawerDelegate(this);
         navigationDrawerDelegate.init();
     }

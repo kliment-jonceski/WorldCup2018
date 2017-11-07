@@ -9,13 +9,15 @@ import java.util.Map;
 
 import jonceski.kliment.worldcup2018.App;
 import jonceski.kliment.worldcup2018.ui.features.start_screen_feature.view.StartScreenActivity;
+import jonceski.kliment.worldcup2018.ui.features.testing_feature.TestActivity;
 
 /**
  * Enumeration class which holds all features used in the application.
  */
 
 public enum MenuFeaturesEnum {
-    FEATURE_HOME(StartScreenActivity.class, null);
+    FEATURE_HOME(StartScreenActivity.class, null),
+    FEATURE_TEST(TestActivity.class, null);
 
     private static final Map<String, MenuFeaturesEnum> FEATURES_MAP;
 

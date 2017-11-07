@@ -1,6 +1,5 @@
-package jonceski.kliment.worldcup2018.navigation;
+package jonceski.kliment.worldcup2018.navigation.drawer;
 
-import android.app.Activity;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +10,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import jonceski.kliment.worldcup2018.App;
 import jonceski.kliment.worldcup2018.R;
-import jonceski.kliment.worldcup2018.ui.features.base_mvp.BaseMvpActivity;
 
 /**
  * Handles creating the Navigation Drawer, populating with items, etc.
@@ -33,9 +32,10 @@ public class NavigationDrawerDelegate {
     public void init() {
         //mTitle = mDrawerTitle = getTitle();
         ArrayList<MenuFeatureModel> list = new ArrayList<>();
-        list.add(new MenuFeatureModel("home", R.drawable.ic_home_black_48dp));
-        list.add(new MenuFeatureModel("stadiums", R.drawable.ic_vignette_black_48dp));
-        list.add(new MenuFeatureModel("teams", R.drawable.ic_title_black_48dp));
+        list.add(new MenuFeatureModel("home", R.drawable.ic_home_black_48dp, "FEATURE_HOME"));
+        list.add(new MenuFeatureModel("stadiums", R.drawable.ic_vignette_black_48dp, "FEATURE_HOME"));
+        list.add(new MenuFeatureModel("teams", R.drawable.ic_title_black_48dp, "FEATURE_HOME"));
+        list.add(new MenuFeatureModel("test feature", R.drawable.home_logo, "FEATURE_TEST"));
 
 
         mDrawerLayout = (DrawerLayout) mActivity.findViewById(R.id.drawer_layout);
@@ -97,5 +97,7 @@ public class NavigationDrawerDelegate {
         mDrawerList.setItemChecked(position, true);
         mActivity.setTitle(drawerItemCustomAdapter.getItem(position).getTitle());
         mDrawerLayout.closeDrawer(mDrawerList);
+        App.getInstance().getNavigationManager().startFeature(drawerItemCustomAdapter.getItem
+                (position).getIdFeature());
     }
 }
